@@ -21,3 +21,24 @@ describe('Check rotation to right of the robot', () => {
     expect(robot.runCommand('DDDD')).toEqual('0 0 N')
   })
 })
+
+describe('Check rotation to left of the robot', () => {
+  beforeEach(() => {
+    robot.setOrientation('N')
+  })
+  it('rotate to left one command', async () => {
+    expect(robot.runCommand('I')).toEqual('0 0 O')
+  })
+
+  it('rotate to left two commands', async () => {
+    expect(robot.runCommand('II')).toEqual('0 0 S')
+  })
+
+  it('rotate to left three commands', async () => {
+    expect(robot.runCommand('III')).toEqual('0 0 E')
+  })
+
+  it('rotate to left fourth commands', async () => {
+    expect(robot.runCommand('IIII')).toEqual('0 0 N')
+  })
+})

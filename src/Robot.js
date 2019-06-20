@@ -16,6 +16,9 @@ class Robot {
       if (commandElement === 'D' || commandElement === 'R') {
         this.orientation = orientation[this.orientation].right
       }
+      if (commandElement === 'I' || commandElement === 'L') {
+        this.orientation = orientation[this.orientation].left
+      }
     })
 
     return `${this.coordinates.x} ${this.coordinates.y} ${this.orientation}`
