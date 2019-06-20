@@ -42,3 +42,20 @@ describe('Check rotation to left of the robot', () => {
     expect(robot.runCommand('IIII')).toEqual('0 0 N')
   })
 })
+
+describe('Move robot forward', () => {
+  let robot
+  beforeEach(() => {
+    robot = new Robot(0, 0, 'N')
+    robot.setOrientation('N')
+  })
+  it('move up robot one time', () => {
+    expect(robot.runCommand('A')).toEqual('0 1 N')
+  })
+  it('move up robot three time', () => {
+    expect(robot.runCommand('AAA')).toEqual('0 3 N')
+  })
+  it('move up robot MAX time', () => {
+    expect(robot.runCommand('AAAAA')).toEqual('0 0 N')
+  })
+})
