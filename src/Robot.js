@@ -32,6 +32,12 @@ class Robot {
     this.orientation = orientation
   }
 
+  printToTerminal () {
+    console.log(
+      `${this.coordinates.x} ${this.coordinates.y} ${this.orientation}`
+    )
+  }
+
   move () {
     let y = this.coordinates.y
     let x = this.coordinates.x

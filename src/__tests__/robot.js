@@ -59,3 +59,65 @@ describe('Move robot forward', () => {
     expect(robot.runCommand('AAAAA')).toEqual('0 0 N')
   })
 })
+
+describe('Move robot forward with rotation to right', () => {
+  let robot
+  beforeEach(() => {
+    robot = new Robot(0, 0, 'N')
+    robot.setOrientation('N')
+  })
+  it('move right robot one time', () => {
+    expect(robot.runCommand('DA')).toEqual('1 0 E')
+  })
+  it('move right robot four time', () => {
+    expect(robot.runCommand('DAAAA')).toEqual('4 0 E')
+  })
+})
+
+describe('Move robot forward with rotation to left', () => {
+  let robot
+  beforeEach(() => {
+    robot = new Robot(0, 0, 'N')
+    robot.setOrientation('N')
+  })
+
+  it('move left robot one time', () => {
+    expect(robot.runCommand('LA')).toEqual('4 0 O')
+  })
+  it('move left three time', () => {
+    expect(robot.runCommand('LAAA')).toEqual('2 0 O')
+  })
+})
+
+describe('Move robot (south) with double rotation to left', () => {
+  let robot
+  beforeEach(() => {
+    robot = new Robot(0, 0, 'N')
+    robot.setOrientation('N')
+  })
+
+  it('rotate double left and move robot one time', () => {
+    expect(robot.runCommand('LLA')).toEqual('0 4 S')
+  })
+  it('rotate double left and move three time', () => {
+    expect(robot.runCommand('LLAAA')).toEqual('0 2 S')
+  })
+})
+
+describe('Jupiter testing suite first', () => {
+  it('First example', () => {
+    let robot
+    robot = new Robot(1, 2, 'N')
+    robot.setOrientation('N')
+    expect(robot.runCommand('IAIAIAIAA')).toEqual('1 3 N')
+  })
+})
+
+describe('Jupiter testing suite second', () => {
+  it('Second example', () => {
+    let robot
+    robot = new Robot(3, 3, 'E')
+    robot.setOrientation('E')
+    expect(robot.runCommand('AADAADADDA')).toEqual('5 1 E')
+  })
+})
